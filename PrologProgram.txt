@@ -1,0 +1,27 @@
+:- initialization(main).
+
+Male(Edward VII).
+Male(George V).
+Male(George VI).
+Male(Charles).
+Male(William).
+Male(Phillip).
+Male(George VIII).
+Male(Harry).
+
+P(Victoria, Edward VII).
+P(Edward VII, George V).
+P(Alexandra, George V).
+P(George V, George VI).
+P(George VI, Elizabeth II).
+P(Elizabeth II, Charles).
+P(Phillip, Charles).
+P(Charles, William).
+P(Charles, Harry).
+P(Diana, William).
+P(William, George VIII).
+P(Kate, George VIII).
+P(William, Charlotte).
+P(Kate, Charlotte).
+
+Father(x,y) :- P(x,y), Male(x).
