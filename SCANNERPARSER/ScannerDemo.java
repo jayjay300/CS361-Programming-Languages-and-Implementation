@@ -5,9 +5,8 @@
  * 
  */
 public class ScannerDemo {
-//JOHN MULCAHY AND JEN MCCALL
-	//private static String file1 = "C:\\Users\\John\\Desktop\\file.txt";
-	private static String file1 = "C:\\Users\\cscharff\\Desktop\\TESTSCANNERPARSER2010\\GIVEN\\PARSER\\prog2.jay";
+
+	private static String file1 = "E:\\Downloads\\ParserScannerTests\\ParserScannerTests\\PARSER\\prog4.jay";
 	private static int counter = 1;
 
 	public static void main(String args[]) {
