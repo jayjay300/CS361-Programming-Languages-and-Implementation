@@ -1,7 +1,7 @@
 public class ParserDemo {
 
 	public static void main(String[] args) {
-		TokenStream tStream = new TokenStream("E:\\Downloads\\ParserScannerTests\\ParserScannerTests\\PARSER\\prog4.jay");
+		TokenStream tStream = new TokenStream(args[0]);
 		System.out.println("test1");
 		ConcreteSyntax cSyntax = new ConcreteSyntax(tStream);
 		System.out.println("test2");
