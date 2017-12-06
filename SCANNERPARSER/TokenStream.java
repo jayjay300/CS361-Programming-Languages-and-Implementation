@@ -40,7 +40,7 @@ public class TokenStream {
 
 	public Token nextToken() { // Return next token type and value.
 		Token t = new Token();
-		t.setType("Other");
+		
 		t.setValue("");
 
 		// First check for whitespace and bypass it.
@@ -53,11 +53,19 @@ public class TokenStream {
 			// there
 			// are two comment lines in a row.
 			nextChar = readChar();
+			
 			if (nextChar == '/') { // If / is followed by another /
 				// skip rest of line - it's a comment.
-					while(isEndOfLine(nextChar) != true){
-					nextChar = readChar(); 
+			//	nextChar = readChar();
+				while(isEndOfLine(nextChar) != true){
+						nextChar = readChar();
 				}
+					//t = nextToken();
+				nextChar = readChar();
+				//nextChar = readChar();
+				if(isEndOfLine(nextChar))
+					nextChar = readChar();
+					//t = nextToken();
 				// look for <cr>, <lf>, <ff>
 
 			} else {
@@ -66,12 +74,16 @@ public class TokenStream {
 				if (nextChar == 92) {
 					t.setValue("/" + nextChar);
 					nextChar = readChar();
-				} else
+				} else{
 					// A slash followed by anything else must be an operator.
 					t.setValue("/");
 				t.setType("Operator");
 				return t;
+				}
 			}
+			skipWhiteSpace();
+			//t.setType("Other");
+			//t.setValue("");
 		}
 
 		// Then check for an operator; recover 2-character operators
@@ -93,6 +105,7 @@ public class TokenStream {
 						nextChar = readChar();
 					}
 				return t;
+
 			case '&':
 				char amp = nextChar;
 				nextChar = readChar();
@@ -152,7 +165,7 @@ public class TokenStream {
 		}
 
 		if (isDigit(nextChar)) { // check for integers
-			t.setType("Integer-Literal");
+			t.setType("Literal");
 			while (isDigit(nextChar)) {
 				t.setValue(t.getValue() + nextChar);
 				nextChar = readChar();

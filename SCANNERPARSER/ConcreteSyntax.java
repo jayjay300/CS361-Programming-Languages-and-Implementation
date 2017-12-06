@@ -121,12 +121,14 @@ public class ConcreteSyntax {
 			token = input.nextToken();
 			s = statements();
 			match("}");
-		} else if (token.getValue().equals("if")) // IfStatement
+		} else if (token.getValue().equals("if")){// IfStatement
+			System.out.println("TEST " + token.getValue());
 			s = ifStatement();
-		else if (token.getValue().equals("while")) {
-			// WhileStatement
+		}else if (token.getValue().equals("while")) {
+			
 			s = whileStatement();
 		} else if (token.getType().equals("Identifier") || token.getType().equals("Literal")) { // Assignment
+			System.out.println("TEST " + token.getValue());
 			s = assignment(); 
 		}
 		else
@@ -299,7 +301,7 @@ public class ConcreteSyntax {
 		//	token = input.nextToken();
 			match(")");
 			c.thenbranch = statement();
-			token = input.nextToken();
+			//token = input.nextToken();
 			if(token.getValue().equals("else")){
 				token = input.nextToken();
 				c.elsebranch = statement();
